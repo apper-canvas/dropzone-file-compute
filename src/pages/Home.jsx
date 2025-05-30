@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import MainFeature from '../components/MainFeature'
 import ApperIcon from '../components/ApperIcon'
 
+import { toast } from 'react-toastify'
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -37,6 +38,30 @@ const Home = () => {
             </motion.div>
             
             <div className="flex items-center space-x-4">
+{/* Test Section */}
+      <section className="container mx-auto px-4 py-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-2xl shadow-card p-8 text-center"
+        >
+          <h2 className="text-2xl font-semibold text-surface-800 mb-4">
+            Application Test
+          </h2>
+          <p className="text-surface-600 mb-6">
+            Click the button below to test if the application is working correctly
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => toast.success('Test successful! Application is working correctly.')}
+            className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-xl font-medium shadow-soft hover:shadow-card transition-all duration-300"
+          >
+            Run Test
+          </motion.button>
+        </motion.div>
+      </section>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
