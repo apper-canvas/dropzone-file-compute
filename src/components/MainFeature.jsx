@@ -45,7 +45,7 @@ const MainFeature = () => {
   // Handle file upload
   const handleFileUpload = useCallback((fileList) => {
     Array.from(fileList).forEach(file => {
-      const fileId = Date.now() + Math.random().toString(36).substr(2, 9)
+const fileId = Date.now() + Math.random().toString(36).substring(2, 9)
       const newFile = {
         id: fileId,
         name: file.name,
@@ -330,6 +330,7 @@ const MainFeature = () => {
             </motion.button>
           </div>
         </div>
+</motion.div>
       </motion.div>
 
       {/* Upload Progress */}
