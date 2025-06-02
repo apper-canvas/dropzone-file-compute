@@ -327,10 +327,9 @@ const fileId = Date.now() + Math.random().toString(36).substring(2, 9)
             >
               <ApperIcon name="Plus" className="w-4 h-4" />
               <span>Choose Files</span>
-            </motion.button>
+</motion.button>
           </div>
         </div>
-</motion.div>
       </motion.div>
 
       {/* Upload Progress */}
@@ -559,7 +558,7 @@ const fileId = Date.now() + Math.random().toString(36).substring(2, 9)
         </div>
         
         <div className="flex justify-between text-sm text-surface-600 dark:text-surface-400">
-          <span>Free: {formatFileSize(5 * 1024 * 1024 * 1024 - files.reduce((total, file) => total + file.size, 0))}</span>
+<span>Free: {formatFileSize(5 * 1024 * 1024 * 1024 - files.reduce((total, file) => total + (file.size || 0), 0))}</span>
           <span>{files.length} files</span>
         </div>
       </motion.div>

@@ -37,7 +37,7 @@ const Home = () => {
               </span>
             </motion.div>
             
-            <div className="flex items-center space-x-4">
+<div className="flex items-center space-x-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -50,14 +50,32 @@ const Home = () => {
                 />
               </motion.button>
               
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors"
-              >
-                <ApperIcon name="Settings" className="w-4 h-4" />
-                <span className="hidden sm:inline">Settings</span>
-              </motion.button>
+              {isAuthenticated ? (
+                <>
+                  <div className="hidden sm:flex items-center space-x-2 text-sm text-surface-600 dark:text-surface-400">
+                    <span>Welcome, {user?.firstName || user?.name || 'User'}</span>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={logout}
+                    className="flex items-center space-x-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+                  >
+                    <ApperIcon name="LogOut" className="w-4 h-4" />
+                    <span className="hidden sm:inline">Logout</span>
+                  </motion.button>
+                </>
+              ) : (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = '/login'}
+                  className="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors"
+                >
+                  <ApperIcon name="LogIn" className="w-4 h-4" />
+                  <span className="hidden sm:inline">Login</span>
+                </motion.button>
+              )}
             </div>
           </div>
         </div>
